@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<title>Layout</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
+	href="../../css/bootstrap.min.css" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.1/jquery.min.js"
+	th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+<meta http-equiv="refresh" content="3" />	
+</head>
+<body>
+	<div class="container">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand"
+					href="https://github.com/ultraq/thymeleaf-layout-dialect">
+					Komentarze </a>
+				<ul class="nav">
+				</ul>
+			</div>
+		</div>
+		<div layout:fragment="content">
+			<ul class="list-group">
+				<tr th:each="comment : ${comments}">
+					<li class="list-group-item">
+						<p th:text="${comment.content}" />
+					</li>
+				</tr>
+			</ul>
+		</div>
+
+		<div class="bs-example"></div>
+	</div>
+</body>
+
+</html>
